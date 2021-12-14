@@ -1,5 +1,5 @@
 #include<iostream>
-#include<iomanip> //For using setw(), setprecision(), ...
+#include<iomanip> 
 using namespace std;
 
 int main(){	
@@ -18,8 +18,7 @@ int main(){
 	cout << setw(13) << left << "NewBalance";
 	cout << "\n";
 
-	for(int i = 1;true;i++){
-		if(capital>rebate){	
+	for(int i = 1;capital>0;i++){
 			cout << fixed << setprecision(2);
 			cout << setw(13) << left << i; 
 			cout << setw(13) << left << capital;
@@ -27,35 +26,12 @@ int main(){
 			cout << setw(13) << left << interest;
 			total=interest+capital;
 			cout << setw(13) << left << total;
-			cout << setw(13) << left << rebate;
-			newbalamnce= total- rebate;
+				if(rebate>total){rebate=total;}
+			cout << setw(13) << left << rebate;	
+			newbalamnce= total - rebate;
 			cout << setw(13) << left << newbalamnce;
 			cout << "\n";
 			capital=newbalamnce;
-				if(newbalamnce<rebate){
-				cout << fixed << setprecision(2);
-				cout << setw(13) << left << i+1; 
-				cout << setw(13) << left << capital;
-				interest=capital*(perinterest/100);
-				cout << setw(13) << left << interest;
-				newbalamnce=interest+capital;
-				cout << setw(13) << left << newbalamnce;
-				cout << setw(13) << left << newbalamnce;
-				cout << setw(13) << left << newbalamnce-newbalamnce;
-				cout << "\n";
-				break;}
-		}else {
-		cout << fixed << setprecision(2);
-				cout << setw(13) << left << 1; 
-				cout << setw(13) << left << capital;
-				interest=capital*(perinterest/100);
-				cout << setw(13) << left << interest;
-				total=interest+capital;
-				cout << setw(13) << left << total;
-				cout << setw(13) << left << total;
-				cout << setw(13) << left << total-total;
-				cout << "\n";
-				break;}
 	}
 	return 0;
 }
